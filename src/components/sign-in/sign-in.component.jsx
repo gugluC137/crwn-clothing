@@ -12,17 +12,17 @@ class SignIn extends Component {
 
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
 		};
 	}
 
-	handleSubmit = event => {
+	handleSubmit = (event) => {
 		event.preventDefault();
 
 		this.setState({ email: "", password: "" });
 	};
 
-	handleChange = event => {
+	handleChange = (event) => {
 		const { name, value } = event.target;
 
 		this.setState({ [name]: value });
@@ -55,7 +55,7 @@ class SignIn extends Component {
 					<div className="buttons">
 						<CustomButton type="submit">SIGN IN</CustomButton>
 						<CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-							SIGN IN with Google
+							GOOGLE SIGN IN
 						</CustomButton>
 					</div>
 				</form>
