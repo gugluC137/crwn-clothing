@@ -25,7 +25,7 @@ class App extends Component {
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth);
 
-				userRef.onSnapshot((snapshot) => {
+				userRef.onSnapshot(snapshot => {
 					setCurrentUser({
 						id: snapshot.id,
 						...snapshot.data(),
@@ -50,7 +50,7 @@ class App extends Component {
 				<Switch>
 					<Route exact path="/signin">
 						{currentUser ? (
-							<Redirect to='./' />
+							<Redirect to="/" />
 						) : (
 							<SignInAndSignUpPage />
 						)
@@ -59,7 +59,7 @@ class App extends Component {
 					<Route path="/shop">
 						<ShopPage />
 					</Route>
-					<Route path='/checkout'>
+					<Route path="/checkout">
 						<CheckoutPage />
 					</Route>
 					<Route path="/">
