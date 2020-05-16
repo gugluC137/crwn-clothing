@@ -17,3 +17,13 @@ export const selectShopCollection = collectionUrlParam =>
 		[selectShopCollections],
 		collections => collections ? collections[collectionUrlParam] : null
 	);
+
+export const selectCollectionsFetching = createSelector(
+	[selectShop],
+	shop => shop.isFetching
+);
+
+export const selectHasCollectionsLoaded = createSelector(
+	[selectShop],
+	shop => !!shop.collections
+)

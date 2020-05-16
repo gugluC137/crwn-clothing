@@ -1,24 +1,20 @@
-import React from "react";
+import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-import CollectionPage from '../collection/collection.component';
-import WithSpinner from '../../components/with-spinner/with-spinner.component';
+import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
+import CollectionPageContainer from '../collection/collection.container';
 
-const CollectionPageWithSpinner = WithSpinner(CollectionPage);
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
-
-const ShopPageWithRouterHooks = ({ isLoading }) => {
+const ShopPageWithRouterHooks = () => {
 	const match = useRouteMatch();
 
 	return (
 		<div>
 			<Switch>
 				<Route exact path={`${match.path}`}>
-					<CollectionsOverviewWithSpinner isLoading={isLoading} />
+					<CollectionsOverviewContainer />
 				</Route>
 				<Route path={`${match.path}/:collectionId`}>
-					<CollectionPageWithSpinner isLoading={isLoading} />
+					<CollectionPageContainer />
 				</Route>
 			</Switch>
 		</div>
